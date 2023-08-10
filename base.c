@@ -1,5 +1,7 @@
 // base.c
 
+#include <stdlib.h>
+#include <string.h>
 #include "base.h"
 
 static void Base_virtualFunc(Base const* const me);

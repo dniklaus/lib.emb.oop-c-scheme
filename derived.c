@@ -1,5 +1,6 @@
 // derived.c
 
+#include <stdlib.h>
 #include "derived.h"
 
 Derived* Derived_create(int derivedVal)
