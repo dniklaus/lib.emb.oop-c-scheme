@@ -14,7 +14,7 @@ struct Base
     struct BaseVtable const* vptr;
     BaseAttr attr;
     void (*virtualFunc)(Base const* const me);
-    void (*getName)(Base const* const me);
+    const char* (*getName)(Base const* const me);
 };
 
 struct BaseVtable
