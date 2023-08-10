@@ -28,7 +28,7 @@ void Base_init(Base* const me, const char* name);
 void Base_destroy(Base* const me);
 void Base_finalize(Base* const me);
 
-void Base_getName(Base const* const me);
+const char* Base_getName(Base const* const me);
 
 /* inline virtual calls (-> late binding) */
 static inline void Base_virtualFunc_vcall(Base const* const me)
