@@ -1,14 +1,14 @@
 @startuml
 
 abstract class Base {
-  name : char[]
-  getName() : char*
-  {abstract} virtualFunc() : void
+  - name : char[]
+  + getName() : char*
+  + {abstract} virtualFunc() : void
 }
 
 class Derived {
-  derivedVal : int
-  virtualFunc() : void
+  - derivedVal : int
+  + virtualFunc() : void
 }
 
 Base <|-- Derived
