@@ -6,8 +6,8 @@
 #include "base.h"
 
 typedef struct Derived Derived;
-
 typedef struct DerivedAttr DerivedAttr;
+
 struct DerivedAttr
 {
     int derivedVal;
