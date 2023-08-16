@@ -1,4 +1,4 @@
-// base.c
+/* base.c */
 
 #include <stdlib.h>
 #include <string.h>
