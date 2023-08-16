@@ -1,5 +1,6 @@
-#include "base.h"
 #include <stdio.h>
+#include "base.h"
+
 int main() 
 {
   Base b1, b2;              /* multiple instances of Base */
@@ -12,4 +13,6 @@ int main()
   
   Base_finalize(&b1);
   Base_finalize(&b2);
+
+  return 0;
 }
