@@ -1,4 +1,4 @@
-// derived.h
+/* derived.h */
 
 #ifndef _DERIVED_H_
 #define _DERIVED_H_
@@ -15,7 +15,7 @@ struct Derived
 {
     Base super;       /* inherits Base, must be at this struct's first position */
     DerivedAttr attr;
-    void (*printInfo)();
+    void (*printInfo)(Derived const* const me);
 };
 
 Derived* Derived_create(const char* name, int val);

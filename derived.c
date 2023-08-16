@@ -1,4 +1,4 @@
-// derived.c
+/* derived.c */
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -20,6 +20,8 @@ void Derived_init(Derived* const me, const char* name, int val)
     me->super.vptr = &vtable;
     
     me->attr.derivedVal = val;
+
+    me->printInfo = &Derived_printInfo;
 }
 
 void Derived_destroy(Derived* me)
@@ -35,8 +37,7 @@ void Derived_finalize(Derived* me)
 
 void Derived_virtualFunc(Derived const* const me)
 {
-    /* specific implementation */
-    (void)me;
+    me->printInfo(me);
 }
 
 void Derived_printInfo(Derived const* const me)
