@@ -8,7 +8,7 @@
     "configurations": [
         {
             "name": "Codespaces",
-            "intelliSenseMode": "clang-x64",
+            "intelliSenseMode": "linux-gcc-x64",
             "includePath": [
                 "${myDefaultIncludePath}",
                 "."
