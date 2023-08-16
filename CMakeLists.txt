@@ -1,5 +1,16 @@
 cmake_minimum_required(VERSION 3.16)
-project(oop-c-scheme)
+set(PROJECT "oop-c-scheme")
+project(${PROJECT} VERSION 1.0.0 LANGUAGES C)
 
-add_library(${PROJECT_NAME} STATIC base.c derived.c)
-target_include_directories(${PROJECT_NAME} PUBLIC . )
+# Names of needed components
+set(TARGET ${PROJECT})
+set(INCLUDE_DIRECTORIES ".")
+set(SOURCES
+	"base.c"
+	"derived.c"
+)
+
+# Make the library
+add_library(${TARGET} OBJECT ${SOURCES})
+target_link_libraries(${TARGET})
+target_include_directories(${TARGET} PUBLIC ${INCLUDE_DIRECTORIES})
