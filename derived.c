@@ -1,24 +1,25 @@
 // derived.c
 
 #include <stdlib.h>
+#include <stdio.h>
 #include "derived.h"
 
-Derived* Derived_create(int derivedVal)
+Derived* Derived_create(const char* name, int val)
 {
     Derived* me = malloc(sizeof(Derived));
-    Derived_init(me, derivedVal);
+    Derived_init(me, name, val);
     return me;    
 }
 
-void Derived_init(Derived* const me, int derivedVal)
+void Derived_init(Derived* const me, const char* name, int val)
 {
     static const struct BaseVtable vtable = {
         (void (*)(Base const* const me))&Derived_virtualFunc
     };
-    Base_init(&me->super, "Derived");
+    Base_init(&me->super, name);
     me->super.vptr = &vtable;
     
-    me->attr.derivedVal = derivedVal;
+    me->attr.derivedVal = val;
 }
 
 void Derived_destroy(Derived* me)
@@ -36,4 +37,9 @@ void Derived_virtualFunc(Derived const* const me)
 {
     /* specific implementation */
     (void)me;
+}
+
+void Derived_printInfo(Derived const* const me)
+{
+    printf("Name: %s - Val: %i\n", me->super.getName(&me->super), me->attr.derivedVal);
 }
