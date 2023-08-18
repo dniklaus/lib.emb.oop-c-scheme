@@ -23,7 +23,7 @@ void Derived_init(Derived* const me, const char* name, int val);
 void Derived_destroy(Derived* me);
 void Derived_finalize(Derived* me);
 
-void Derived_virtualFunc(Derived const* const me);
+void Derived_virtualFunc(Derived const* const me);  /* */
 
 void Derived_printInfo(Derived const* const me);
 

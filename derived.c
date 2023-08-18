@@ -13,11 +13,12 @@ Derived* Derived_create(const char* name, int val)
 
 void Derived_init(Derived* const me, const char* name, int val)
 {
-    static const struct BaseVtable vtable = {
-        (void (*)(Base const* const me))&Derived_virtualFunc
+    /* static const (immutable) virtual function table allocation, kept in ROM */
+    static const BaseVtable vtable = {
+        (void (*)(Base const* const me))&Derived_virtualFunc    /* init ptr to own virtualFunc() impl. with "me" upcast */
     };
     Base_init(&me->super, name);
-    me->super.vptr = &vtable;
+    me->super.vptr = &vtable;                                   /* assign own vtable to Base's vptr (overwrite) */
     
     me->attr.derivedVal = val;
 
@@ -35,6 +36,7 @@ void Derived_finalize(Derived* me)
     Base_finalize(&me->super);
 }
 
+/* Derived's specific implementation of virtualFunc() */
 void Derived_virtualFunc(Derived const* const me)
 {
     me->printInfo(me);
