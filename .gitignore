@@ -52,3 +52,8 @@ modules.order
 Module.symvers
 Mkfile.old
 dkms.conf
+CMakeCache.txt
+CMakeFiles/cmake.check_cache
+CMakeFiles/CMakeConfigureLog.yaml
+CMakeFiles/3.28.1/CMakeSystem.cmake
+CMakeFiles/3.28.1/CompilerIdC/CMakeCCompilerId.c
