@@ -5,14 +5,13 @@
 
 int main() 
 {
-  uint8_t n = 10;
-  Base* b[n];
+  Base* b[10];
+  char name[] = "DerivedN ";
 
   /* create 10 objects of Derived type, assign them to an array of pointers to Base type */
   for (int i = 0; i < 10; i++)
   {
-    char name[strlen("DerivedN")+1];
-    sprintf(name, "Derived%i", i);
+    snprintf(name, sizeof(name), "Derived%i", i);
     b[i] = (Base*)Derived_create((const char*)name, i);
   }
 
