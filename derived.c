@@ -15,14 +15,14 @@ void Derived_init(Derived* const me, const char* name, int val)
 {
     /* static const (immutable) virtual function table allocation, kept in ROM */
     static const BaseVtable vtable = {
-        (void (*)(Base const* const me))&Derived_virtualFunc    /* init ptr to own virtualFunc() impl. with "me" upcast */
+        .virtualFunc = (void (*)(Base const* const me))Derived_virtualFunc    /* init ptr to own virtualFunc() impl. with "me" upcast */
     };
     Base_init(&me->super, name);
     me->super.vptr = &vtable;                                   /* assign own vtable to Base's vptr (overwrite) */
     
     me->attr.derivedVal = val;
 
-    me->printInfo = &Derived_printInfo;
+    me->printInfo = Derived_printInfo;
 }
 
 void Derived_destroy(Derived* me)

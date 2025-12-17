@@ -19,16 +19,16 @@ void Base_init(Base* const me, const char* name)
 {
     /* static const (immutable) virtual function table allocation, kept in ROM */
     static const BaseVtable vtable = {
-        &Base_virtualFunc                       /* initialize pointer to local pure virtualFunc() */
+        .virtualFunc = Base_virtualFunc        /* initialize pointer to local pure virtualFunc() impl. */
     };
-    me->vptr = &vtable;                         /* default assignment to own virtual table */
-    me->virtualFunc = &Base_virtualFunc_vcall;  /* assign I/F with pointer to inline virtual call */
+    me->vptr = &vtable;                        /* default assignment to own virtual table */
+    me->virtualFunc = Base_virtualFunc_vcall;  /* assign I/F with pointer to inline virtual call */
     
     me->attr.name = malloc(strlen(name)+1);
     memcpy(me->attr.name, name, strlen(name));
     me->attr.name[strlen(name)] = '\0';
     
-    me->getName = &Base_getName;
+    me->getName = Base_getName;
 }
 
 void Base_destroy(Base* me)
